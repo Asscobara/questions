@@ -1,0 +1,30 @@
+<div [ngSwitch]="type" [formGroup]="myGroup">
+
+    <mat-form-field ngDefaultControl class="example-form-field" appearance="fill" *ngSwitchCase="'number'" [formControl]="myFormControl">
+        <mat-label>{{item?.title}}</mat-label>
+        <input matInput type="number" [options]="options" >
+        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+
+
+    <label *ngSwitchCase="'radio'" class="example-radio-label">{{item?.title}}</label>
+    <mat-radio-group ngDefaultControl *ngSwitchCase="'radio'" class="example-radio-group" [formControl]="myFormControl">
+        <mat-radio-button class="example-radio-button" [value]="'y'">Yes</mat-radio-button>
+        <mat-radio-button class="example-radio-button" [value]="'n'">No</mat-radio-button>
+    </mat-radio-group>
+    
+    <mat-form-field ngDefaultControl *ngSwitchCase="'select'" [formControl]="myFormControl">
+        <mat-label>{{item.title}</mat-label>
+        <mat-select  >
+          <mat-option *ngFor="let opt of options" [value]="opt">
+            {{opt}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+          
+</div>
+
+<app-log-item *ngFor="let item of item?.childItems" [item]="item"></app-log-item>
+ 
