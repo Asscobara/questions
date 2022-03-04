@@ -30,4 +30,8 @@ export class LogItemComponent implements OnInit {
     return this.item?.options ? this.item.options: [];
   }
 
+
+  public get showChildren(): boolean {
+    return (this.myFormControl.value && this.myFormControl.value === 'y') || this.type !== 'radio';
+  }
 }

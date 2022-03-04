@@ -10,7 +10,7 @@
 
 
     <label *ngSwitchCase="'radio'" class="example-radio-label">{{item?.title}}</label>
-    <mat-radio-group ngDefaultControl *ngSwitchCase="'radio'" class="example-radio-group" [formControl]="myFormControl">
+    <mat-radio-group ngDefaultControl *ngSwitchCase="'radio'" class="example-radio-group" [formControlName]="'d'">
         <br/>
         <mat-radio-button class="example-radio-button" [value]="'y'">Yes</mat-radio-button>
         <mat-radio-button class="example-radio-button" [value]="'n'">No</mat-radio-button>
@@ -27,5 +27,7 @@
           
 </div>
 
-<app-log-item class="child-item" *ngFor="let item of item?.childItems" [item]="item"></app-log-item>
+<div *ngIf="showChildren">
+    <app-log-item  class="child-item" *ngFor="let item of item?.childItems" [item]="item"></app-log-item>
+</div>
  
