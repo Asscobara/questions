@@ -1,6 +1,8 @@
-<h4>Questions</h4>
+<h1>Questions</h1>
 
 <div *ngFor="let q of questions; let i=index">
-  <span >{{i+1}}.</span> 
-  <app-log-item [item]="q"></app-log-item>
+  <div class="question-container">
+    <span >{{i+1}}.</span> 
+    <app-log-item [item]="q"></app-log-item>
+  </div>
 </div>
