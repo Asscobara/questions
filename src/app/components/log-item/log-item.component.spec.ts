@@ -6,6 +6,11 @@ describe('LogItemComponent', () => {
   let component: LogItemComponent;
   let fixture: ComponentFixture<LogItemComponent>;
 
+  const mockData = {
+        "title": "Age",
+        "type": "number"
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ LogItemComponent ]
@@ -22,4 +27,10 @@ describe('LogItemComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('show children', () => {
+    component.item = mockData;
+    expect(component.showChildren).toBeTruthy();
+  });
+  
 });
